@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "正念阻断器",
+  "version": "1.0",
+  "description": "帮助用户远离不良网站，重定向到冥想页面",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "manifest_rules": [{
+    "id": "ruleset_1",
+    "enabled": true,
+    "path": "rules.json"
+  }],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}

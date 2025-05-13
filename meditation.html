@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>冥想与正念</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .quote {
+      font-size: 1.2em;
+      font-style: italic;
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    .meditation-timer {
+      margin: 30px 0;
+    }
+    button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .tips {
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>静心冥想</h1>
+    <div class="quote">
+      "心若冰清，天塌不惊。"
+    </div>
+    <div class="meditation-timer">
+      <p>冥想计时器：<span id="timer">5:00</span></p>
+      <button id="startTimer">开始冥想</button>
+    </div>
+    <div class="tips">
+      <h2>正念修行建议</h2>
+      <p>1. 找到一个安静的地方，采取舒适的坐姿</p>
+      <p>2. 闭上眼睛，关注你的呼吸</p>
+      <p>3. 让思绪如云般飘过，不要执着</p>
+      <p>4. 每天坚持练习，培养正念习惯</p>
+    </div>
+  </div>
+  <script>
+    let timerInterval;
+    let timeLeft = 300; // 5分钟
+
+    document.getElementById('startTimer').addEventListener('click', function() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        this.textContent = '开始冥想';
+        timeLeft = 300;
+        updateTimerDisplay();
+        timerInterval = null;
+      } else {
+        this.textContent = '停止';
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            this.textContent = '开始冥想';
+            timeLeft = 300;
+            alert('冥想结束！');
+          }
+        }, 1000);
+      }
+    });
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('timer').textContent = 
+        `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+  </script>
+</body>
+</html>
