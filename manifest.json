@@ -3,8 +3,10 @@
   "name": "正念阻断器",
   "version": "1.0",
   "description": "帮助用户远离不良网站，重定向到冥想页面",
+  "incognito": "spanning",
   "permissions": [
     "storage",
+    "activeTab",
     "declarativeNetRequest"
   ],
   "manifest_rules": [{
