@@ -49,14 +49,58 @@
       padding: 4px 8px;
       font-size: 12px;
     }
+    
+    /* 添加输入框和按钮的容器样式 */
+    .input-container {
+      display: flex;
+      gap: 5px;
+      height: 36px; /* 设置固定高度 */
+      align-items: center; /* 垂直居中对齐 */
+    }
+
+    #siteInput {
+      height: 100%; /* 继承父容器高度 */
+      box-sizing: border-box; /* 确保padding不会增加总高度 */
+    }
+
+    #addSite {
+      height: 100%; /* 继承父容器高度 */
+      padding: 0 10px;
+      white-space: nowrap;
+      box-sizing: border-box; /* 确保padding不会增加总高度 */
+    }
+
+    .site-item {
+      height: 36px; /* 与input-container相同的高度 */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* 添加网站URL容器样式 */
+    .site-url-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    /* 添加查看按钮样式 */
+    .view-btn {
+      background: #2196F3;
+      padding: 4px 8px;
+      font-size: 12px;
+      margin-left: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>拦截助手设置</h2>
-    <div>
+    <div class="input-container">
       <input type="text" id="siteInput" placeholder="输入要拦截的网站域名 (例如: example.com)">
-      <button id="addSite">添加网站</button>
+      <button id="addSite">添加</button>
     </div>
     <div class="site-list" id="siteList">
       <!-- 网站列表将通过JavaScript动态添加 -->
